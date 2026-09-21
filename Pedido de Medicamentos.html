@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)https://farmatienda.netlify.app/ -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=5792fe38-dc4d-46f6-9e7f-5d7113641182
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=5792fe38-dc4d-46f6-9e7f-5d7113641182">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pedido de Medicamentos</title>
+    <script src="./Pedido de Medicamentos_files/script.js" defer=""></script>
+    <link href="./Pedido de Medicamentos_files/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Pedido de Medicamentos_files/style.css">
+    <link rel="icon" href="https://farmatienda.netlify.app/favicon.ico" type="image/x-icon">
+    <style>
+      html {
+        scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en los enlaces */
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font-size: 16px;
+      }
+    </style>
+  <script>
+    document.addEventListener(
+      "touchend",
+      function (event) {
+        if (event.detail > 1) {
+          event.preventDefault();
+        }
+      },
+      { passive: false },
+    );
+  </script></head>
+  
+  <body class="bg-gray-100 p-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Barra superior con título, buscador y menú -->
+      <div class="bg-white shadow p-4 mb-6 rounded flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <h1 class="text-2xl font-bold text-blue-900">Catálogo de Productos</h1>
+
+        <input type="text" id="buscador" placeholder="Buscar producto..." class="p-2 border rounded w-full sm:w-64">
+
+        <!-- Menú de categorías con anclas corregidas -->
+        <div class="relative inline-block text-left">
+          <button onclick="toggleDropdown()" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+            Categorías
+            <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7l5 5 5-5"></path>
+            </svg>
+          </button>
+          <div id="dropdown" class="hidden absolute right-0 z-10 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+            <div class="py-1">
+              <a href="https://farmatienda.netlify.app/#tabletas" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tabletas</a>
+              <a href="https://farmatienda.netlify.app/#jarabes" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Jarabes</a>
+              <a href="https://farmatienda.netlify.app/#cremas" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cremas</a>
+              <a href="https://farmatienda.netlify.app/#sobres" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sobres</a>
+              <a href="https://farmatienda.netlify.app/#otros" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Otros</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenedor de productos -->
+      <div id="contenedor-productos" class="px-4"><div id="tabletas"><h2 class="text-3xl font-bold text-center text-purple-700 mt-10 mb-6">Tabletas</h2><div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6"><div class="card">  
+      <img src="./Pedido de Medicamentos_files/Actron400.png" alt="Actron 400 (10u)">
+      <div class="font-semibold text-center">Actron 400 (10u)</div>
+      <div class="text-green-700 font-bold mb-2">$3800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(0, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant0" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(0, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/Actron600.png" alt="Actron 600 (10u)">
+      <div class="font-semibold text-center">Actron 600 (10u)</div>
+      <div class="text-green-700 font-bold mb-2">$8800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(1, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant1" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(1, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/Actronmujer.png" alt="Actron Mujer (10u)">
+      <div class="font-semibold text-center">Actron Mujer (10u)</div>
+      <div class="text-green-700 font-bold mb-2">$4300</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(2, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant2" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(2, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/actronmigra.webp" alt="Actron Migra (10u)">
+      <div class="font-semibold text-center">Actron Migra (10u)</div>
+      <div class="text-green-700 font-bold mb-2">$5000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(3, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant3" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(3, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/anaflex.plus.webp" alt="Anaflex Plus (10u)">
+      <div class="font-semibold text-center">Anaflex Plus (10u)</div>
+      <div class="text-green-700 font-bold mb-2">$4400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(4, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant4" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(4, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/biogrip.jpeg" alt="Bio-grip plus">
+      <div class="font-semibold text-center">Bio-grip plus</div>
+      <div class="text-green-700 font-bold mb-2">$4700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(5, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant5" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(5, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/rolfita.png" alt="Paracetamol 500">
+      <div class="font-semibold text-center">Paracetamol 500</div>
+      <div class="text-green-700 font-bold mb-2">$1000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(6, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant6" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(6, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/fabogesic.png" alt="Ibuprofeno 600 Caps.Blanda (10u)">
+      <div class="font-semibold text-center">Ibuprofeno 600 Caps.Blanda (10u)</div>
+      <div class="text-green-700 font-bold mb-2">$4200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(7, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant7" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(7, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/ibuprofeno600.png" alt="Ibuprofeno 600">
+      <div class="font-semibold text-center">Ibuprofeno 600</div>
+      <div class="text-green-700 font-bold mb-2">$1200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(8, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant8" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(8, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/ibuprofeno400mg.png" alt="Ibuprofeno 400">
+      <div class="font-semibold text-center">Ibuprofeno 400</div>
+      <div class="text-green-700 font-bold mb-2">$1000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(9, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant9" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(9, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/ibupirac600.png" alt="Ibupirac 600 (10u)">
+      <div class="font-semibold text-center">Ibupirac 600 (10u)</div>
+      <div class="text-green-700 font-bold mb-2">$7100</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(10, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant10" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(10, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/ibupirac400.png.jpg" alt="Ibupirac 400 (10u)">
+      <div class="font-semibold text-center">Ibupirac 400 (10u)</div>
+      <div class="text-green-700 font-bold mb-2">$2200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(11, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant11" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(11, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/IBUEVANOLRA.png" alt="Ibuevanol R.A (10 u) ">
+      <div class="font-semibold text-center">Ibuevanol R.A (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$3000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(12, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant12" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(12, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/IBUEVANOLFORTE.png" alt="Ibuevanol Forte (10 u) ">
+      <div class="font-semibold text-center">Ibuevanol Forte (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$3800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(13, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant13" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(13, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/IBUEVANOLPLUS.png" alt="Ibuevanol Plus (10 u) ">
+      <div class="font-semibold text-center">Ibuevanol Plus (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$3000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(14, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant14" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(14, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/IBUEVANOLMAX.png" alt="Ibuevanol Max (10U)">
+      <div class="font-semibold text-center">Ibuevanol Max (10U)</div>
+      <div class="text-green-700 font-bold mb-2">$4200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(15, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant15" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(15, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/ibu600ultra.jpeg" alt="Ibuevanol 600 ultra">
+      <div class="font-semibold text-center">Ibuevanol 600 ultra</div>
+      <div class="text-green-700 font-bold mb-2">$4000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(16, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant16" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(16, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/aspirineta.png" alt="Aspirineta (14 u) ">
+      <div class="font-semibold text-center">Aspirineta (14 u) </div>
+      <div class="text-green-700 font-bold mb-2">$1300</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(17, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant17" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(17, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/bayaspirina.png" alt="Bayaspirina (10 u) ">
+      <div class="font-semibold text-center">Bayaspirina (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$2400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(18, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant18" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(18, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/cafiaspirina.png" alt="Cafiaspirina (10 u)">
+      <div class="font-semibold text-center">Cafiaspirina (10 u)</div>
+      <div class="text-green-700 font-bold mb-2">$2800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(19, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant19" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(19, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/nuevapina.jpeg" alt="Aspirina 100mg (14 u)">
+      <div class="font-semibold text-center">Aspirina 100mg (14 u)</div>
+      <div class="text-green-700 font-bold mb-2">$900</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(20, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant20" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(20, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/fabamoxamoxicilina500.png" alt="Amoxicilina (8 u) ">
+      <div class="font-semibold text-center">Amoxicilina (8 u) </div>
+      <div class="text-green-700 font-bold mb-2">$1800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(21, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant21" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(21, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/fabamoxduo.png" alt="Amoxicilina A. Clavulanico ">
+      <div class="font-semibold text-center">Amoxicilina A. Clavulanico </div>
+      <div class="text-green-700 font-bold mb-2">$7200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(22, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant22" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(22, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/cefalexina.jpg" alt="Cefalexina (10 u)">
+      <div class="font-semibold text-center">Cefalexina (10 u)</div>
+      <div class="text-green-700 font-bold mb-2">$2600</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(23, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant23" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(23, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/ciprofoxacina500.jpg" alt="Ciprofoxacina 500 (inf. urinaria)">
+      <div class="font-semibold text-center">Ciprofoxacina 500 (inf. urinaria)</div>
+      <div class="text-green-700 font-bold mb-2">$3800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(24, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant24" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(24, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/azitromicina.png" alt="Azitromicina 500 (3u)">
+      <div class="font-semibold text-center">Azitromicina 500 (3u)</div>
+      <div class="text-green-700 font-bold mb-2">$3000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(25, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant25" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(25, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/claritromicina.png" alt="Claritromicina 500 (8u)">
+      <div class="font-semibold text-center">Claritromicina 500 (8u)</div>
+      <div class="text-green-700 font-bold mb-2">$7200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(26, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant26" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(26, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/omeprazol.png" alt="Omeprazol 20mg (14 u)">
+      <div class="font-semibold text-center">Omeprazol 20mg (14 u)</div>
+      <div class="text-green-700 font-bold mb-2">$1200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(27, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant27" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(27, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/PastillaCatarro.jpeg" alt="Pastilla efervescente Catarro Y flema 600mg x10u Tukol">
+      <div class="font-semibold text-center">Pastilla efervescente Catarro Y flema 600mg x10u Tukol</div>
+      <div class="text-green-700 font-bold mb-2">$13700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(28, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant28" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(28, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/anti-inflamatorio.jpeg" alt="Antiinflamatorio y calmante (Artrosis|migraña) ">
+      <div class="font-semibold text-center">Antiinflamatorio y calmante (Artrosis|migraña) </div>
+      <div class="text-green-700 font-bold mb-2">$6200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(29, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant29" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(29, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/mylanta.png" alt="Mylanta (8 u) ">
+      <div class="font-semibold text-center">Mylanta (8 u) </div>
+      <div class="text-green-700 font-bold mb-2">$4500</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(30, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant30" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(30, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/rennie.png" alt="Rennie (6 u) ">
+      <div class="font-semibold text-center">Rennie (6 u) </div>
+      <div class="text-green-700 font-bold mb-2">$2800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(31, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant31" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(31, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/buscapinaduo.png" alt="Buscapina Duo (10 u)">
+      <div class="font-semibold text-center">Buscapina Duo (10 u)</div>
+      <div class="text-green-700 font-bold mb-2">$8700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(32, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant32" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(32, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/buscapinacompuesta.png" alt="Buscapina Compuesta (10u) ">
+      <div class="font-semibold text-center">Buscapina Compuesta (10u) </div>
+      <div class="text-green-700 font-bold mb-2">$10200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(33, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant33" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(33, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/buscapinaperlas.png" alt="Buscapina Perlas (10 u) ">
+      <div class="font-semibold text-center">Buscapina Perlas (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$6400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(34, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant34" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(34, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/sertal.png" alt="Sertal (10 u) ">
+      <div class="font-semibold text-center">Sertal (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$8800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(35, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant35" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(35, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/sertalperlas.png" alt="Sertal Perlas (10 u)">
+      <div class="font-semibold text-center">Sertal Perlas (10 u)</div>
+      <div class="text-green-700 font-bold mb-2">$6100</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(36, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant36" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(36, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/refrianex.jpg" alt="Refrianex (10 u) ">
+      <div class="font-semibold text-center">Refrianex (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$4600</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(37, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant37" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(37, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/quraplus.png" alt="Qura Plus (10 u)">
+      <div class="font-semibold text-center">Qura Plus (10 u)</div>
+      <div class="text-green-700 font-bold mb-2">$5000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(38, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant38" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(38, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/nextplus.jpg" alt="Next Plus (10 u) ">
+      <div class="font-semibold text-center">Next Plus (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$3900</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(39, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant39" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(39, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/nextcapbland.png" alt="Next gripe Caps.Blanda (10u)">
+      <div class="font-semibold text-center">Next gripe Caps.Blanda (10u)</div>
+      <div class="text-green-700 font-bold mb-2">$4400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(40, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant40" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(40, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/loratadina.png" alt="Loratadina (10 u)">
+      <div class="font-semibold text-center">Loratadina (10 u)</div>
+      <div class="text-green-700 font-bold mb-2">$1000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(41, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant41" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(41, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/loperamida.png" alt="Loperamida">
+      <div class="font-semibold text-center">Loperamida</div>
+      <div class="text-green-700 font-bold mb-2">$1000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(42, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant42" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(42, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/rosuvastatina20mg.jpeg" alt="rosuvastatina 20mg (10 u) ">
+      <div class="font-semibold text-center">rosuvastatina 20mg (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$6200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(43, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant43" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(43, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/losartan50Mg.jpg" alt="LOSARTAN 50MG x 10u">
+      <div class="font-semibold text-center">LOSARTAN 50MG x 10u</div>
+      <div class="text-green-700 font-bold mb-2">$2000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(44, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant44" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(44, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/mejoralninos2.webp" alt="Mejoral para niños (10 u) ">
+      <div class="font-semibold text-center">Mejoral para niños (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$3400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(45, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant45" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(45, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/novalgina.jpg" alt="Novalgina (10 u) ">
+      <div class="font-semibold text-center">Novalgina (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$7400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(46, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant46" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(46, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/migral500.png" alt="Migral 500 (10 u) ">
+      <div class="font-semibold text-center">Migral 500 (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$5300</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(47, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant47" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(47, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/dorixina.png" alt="Dorixina (10 u)">
+      <div class="font-semibold text-center">Dorixina (10 u)</div>
+      <div class="text-green-700 font-bold mb-2">$2900</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(48, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant48" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(48, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/keterolac20mg.jpg" alt="Ketorolac 20mg (10 u) ">
+      <div class="font-semibold text-center">Ketorolac 20mg (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$900</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(49, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant49" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(49, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/keterolacsublingual.png" alt="Ketorolac Sublingual (10 u)">
+      <div class="font-semibold text-center">Ketorolac Sublingual (10 u)</div>
+      <div class="text-green-700 font-bold mb-2">$1000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(50, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant50" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(50, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/diclofenac.png" alt="Diclofenac 75mg (15 u) ">
+      <div class="font-semibold text-center">Diclofenac 75mg (15 u) </div>
+      <div class="text-green-700 font-bold mb-2">$1150</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(51, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant51" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(51, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/diclolabsa.jpg" alt="Diclofenac con B 12 ">
+      <div class="font-semibold text-center">Diclofenac con B 12 </div>
+      <div class="text-green-700 font-bold mb-2">$3700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(52, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant52" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(52, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/diclofenacpotasico.png" alt="Diclofenac potasico (10 u)">
+      <div class="font-semibold text-center">Diclofenac potasico (10 u)</div>
+      <div class="text-green-700 font-bold mb-2">$1300</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(53, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant53" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(53, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/diclofenacpridinol.png" alt="Diclofenac con Pidrinol (10 u) ">
+      <div class="font-semibold text-center">Diclofenac con Pidrinol (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$1300</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(54, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant54" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(54, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/diclofenac100mg.png" alt="Diclofenac 100mg ">
+      <div class="font-semibold text-center">Diclofenac 100mg </div>
+      <div class="text-green-700 font-bold mb-2">$1600</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(55, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant55" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(55, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/tafirolFem.jpeg" alt="Tafirol Fem (10 u) ">
+      <div class="font-semibold text-center">Tafirol Fem (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$4400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(56, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant56" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(56, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/tafirol.png" alt="Tafirol 500 (10 u) ">
+      <div class="font-semibold text-center">Tafirol 500 (10 u) </div>
+      <div class="text-green-700 font-bold mb-2">$2200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(57, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant57" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(57, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/tafirolforte.png" alt="Tafirol Forte 650mg (10 u)">
+      <div class="font-semibold text-center">Tafirol Forte 650mg (10 u)</div>
+      <div class="text-green-700 font-bold mb-2">$2500</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(58, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant58" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(58, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/tafirol1g.png" alt="Tafirol 1gr (8 u) ">
+      <div class="font-semibold text-center">Tafirol 1gr (8 u) </div>
+      <div class="text-green-700 font-bold mb-2">$2400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(59, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant59" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(59, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/tafirul.png" alt="Tafirol Plus (8 u)">
+      <div class="font-semibold text-center">Tafirol Plus (8 u)</div>
+      <div class="text-green-700 font-bold mb-2">$3000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(60, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant60" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(60, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/tafirolito.png" alt="Tafirolito (10 u)">
+      <div class="font-semibold text-center">Tafirolito (10 u)</div>
+      <div class="text-green-700 font-bold mb-2">$5800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(61, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant61" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(61, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/tafirolmigra.png" alt="Tafirol Migral (10 u)">
+      <div class="font-semibold text-center">Tafirol Migral (10 u)</div>
+      <div class="text-green-700 font-bold mb-2">$5400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(62, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant62" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(62, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/tafirolduo.png" alt="Tafirol DUO (10)">
+      <div class="font-semibold text-center">Tafirol DUO (10)</div>
+      <div class="text-green-700 font-bold mb-2">$4500</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(63, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant63" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(63, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/resaquit.png" alt="Resaquit (4 u) ">
+      <div class="font-semibold text-center">Resaquit (4 u) </div>
+      <div class="text-green-700 font-bold mb-2">$2500</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(64, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant64" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(64, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/bucoangin.png" alt="Caramelo antibiótico (9u)">
+      <div class="font-semibold text-center">Caramelo antibiótico (9u)</div>
+      <div class="text-green-700 font-bold mb-2">$3600</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(65, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant65" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(65, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/pantoprazol.png" alt="Pantoprazol tableta">
+      <div class="font-semibold text-center">Pantoprazol tableta</div>
+      <div class="text-green-700 font-bold mb-2">$3800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(66, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant66" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(66, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/fluconazol.jpg" alt="Fluconazol 150mg">
+      <div class="font-semibold text-center">Fluconazol 150mg</div>
+      <div class="text-green-700 font-bold mb-2">$2000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(67, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant67" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(67, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div></div></div><div id="sobres"><h2 class="text-3xl font-bold text-center text-green-700 mt-10 mb-6">Sobres</h2><div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6"><div class="card">  
+      <img src="./Pedido de Medicamentos_files/bayaspirinacaliente.png" alt="Bayaspirina -C- Caliente">
+      <div class="font-semibold text-center">Bayaspirina -C- Caliente</div>
+      <div class="text-green-700 font-bold mb-2">$1900</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(88, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant88" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(88, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/bayaspirinalimon.png" alt="Bayaspirina -C- Fria ">
+      <div class="font-semibold text-center">Bayaspirina -C- Fria </div>
+      <div class="text-green-700 font-bold mb-2">$1500</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(89, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant89" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(89, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/tevent3.png" alt="Te Vent 3">
+      <div class="font-semibold text-center">Te Vent 3</div>
+      <div class="text-green-700 font-bold mb-2">$1500</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(90, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant90" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(90, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/tevickforte.png" alt="Te Vick ">
+      <div class="font-semibold text-center">Te Vick </div>
+      <div class="text-green-700 font-bold mb-2">$3000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(91, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant91" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(91, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/next.t.forte.jpg" alt="Next T-Forte">
+      <div class="font-semibold text-center">Next T-Forte</div>
+      <div class="text-green-700 font-bold mb-2">$2400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(92, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant92" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(92, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/uvasal.png" alt="Uvasal x2u">
+      <div class="font-semibold text-center">Uvasal x2u</div>
+      <div class="text-green-700 font-bold mb-2">$1200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(93, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant93" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(93, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/uvasalnaranja.png" alt="Uvasal Naranja x2u">
+      <div class="font-semibold text-center">Uvasal Naranja x2u</div>
+      <div class="text-green-700 font-bold mb-2">$1200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(94, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant94" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(94, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/alikalx1.jpg" alt="Alikal x 1">
+      <div class="font-semibold text-center">Alikal x 1</div>
+      <div class="text-green-700 font-bold mb-2">$1050</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(95, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant95" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(95, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/alikalnaranjax1.jpg" alt="Alikal Naranja x1">
+      <div class="font-semibold text-center">Alikal Naranja x1</div>
+      <div class="text-green-700 font-bold mb-2">$1050</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(96, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant96" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(96, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/alikallimonx1.jpg" alt="Alikal Limon x1 ">
+      <div class="font-semibold text-center">Alikal Limon x1 </div>
+      <div class="text-green-700 font-bold mb-2">$1050</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(97, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant97" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(97, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/caja-alikal.jpg" alt="Alikal CAJA x30 U">
+      <div class="font-semibold text-center">Alikal CAJA x30 U</div>
+      <div class="text-green-700 font-bold mb-2">$25700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(98, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant98" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(98, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/caja-alikal-limon.jpg" alt="Alikal Limon CAJA x30 U ">
+      <div class="font-semibold text-center">Alikal Limon CAJA x30 U </div>
+      <div class="text-green-700 font-bold mb-2">$25700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(99, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant99" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(99, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/caja-alikal-naranja.jpg" alt="Alikal Naranja CAJA x30 U ">
+      <div class="font-semibold text-center">Alikal Naranja CAJA x30 U </div>
+      <div class="text-green-700 font-bold mb-2">$25700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(100, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant100" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(100, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/caja-uvasal.jpg" alt="Uvasal CAJA x30 U ">
+      <div class="font-semibold text-center">Uvasal CAJA x30 U </div>
+      <div class="text-green-700 font-bold mb-2">$15200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(101, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant101" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(101, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div></div></div><div id="jarabes"><h2 class="text-3xl font-bold text-center text-red-700 mt-10 mb-6">Jarabes</h2><div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6"><div class="card">  
+      <img src="./Pedido de Medicamentos_files/paracetamolgotas.png" alt="Paracetamol Gotas Pediatrico">
+      <div class="font-semibold text-center">Paracetamol Gotas Pediatrico</div>
+      <div class="text-green-700 font-bold mb-2">$3700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(68, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant68" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(68, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/hepatalgina.jpg" alt="Hepatalgina Gotas">
+      <div class="font-semibold text-center">Hepatalgina Gotas</div>
+      <div class="text-green-700 font-bold mb-2">$8700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(69, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant69" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(69, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/difenhidramina.jpeg" alt="Difenhidramina ( anti alérgico pediátrico) ">
+      <div class="font-semibold text-center">Difenhidramina ( anti alérgico pediátrico) </div>
+      <div class="text-green-700 font-bold mb-2">$2900</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(70, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant70" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(70, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/Jarabeparaparásitospediátrico.jpeg" alt="Jarabe para parásitos pediátrico ">
+      <div class="font-semibold text-center">Jarabe para parásitos pediátrico </div>
+      <div class="text-green-700 font-bold mb-2">$3000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(71, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant71" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(71, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/antialergicogotas.jpg" alt="Antialergico nasal gotas(sinusitis)">
+      <div class="font-semibold text-center">Antialergico nasal gotas(sinusitis)</div>
+      <div class="text-green-700 font-bold mb-2">$4000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(72, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant72" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(72, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/spray-aftas-faringitis.jpeg" alt="Valmafilo Spray(aftas faringitis) 30ml">
+      <div class="font-semibold text-center">Valmafilo Spray(aftas faringitis) 30ml</div>
+      <div class="text-green-700 font-bold mb-2">$9200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(73, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant73" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(73, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/klonamicin.jpeg" alt="Klonamicin CONJUNTIVITIS (tobramicina 0.3mg)">
+      <div class="font-semibold text-center">Klonamicin CONJUNTIVITIS (tobramicina 0.3mg)</div>
+      <div class="text-green-700 font-bold mb-2">$4700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(74, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant74" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(74, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/gotaslubricaojos.jpeg" alt="Gotas lubrica ojos">
+      <div class="font-semibold text-center">Gotas lubrica ojos</div>
+      <div class="text-green-700 font-bold mb-2">$5000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(75, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant75" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(75, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/gotasoido.jpeg" alt="Gotas oido">
+      <div class="font-semibold text-center">Gotas oido</div>
+      <div class="text-green-700 font-bold mb-2">$5000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(76, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant76" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(76, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/ibuprofenojarabe.png" alt="Ibuprofeno Jarabe Niño 4% ">
+      <div class="font-semibold text-center">Ibuprofeno Jarabe Niño 4% </div>
+      <div class="text-green-700 font-bold mb-2">$3700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(77, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant77" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(77, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/ibuprofeno2.jpeg" alt="Ibuprofeno Jarabe 2%">
+      <div class="font-semibold text-center">Ibuprofeno Jarabe 2%</div>
+      <div class="text-green-700 font-bold mb-2">$3200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(78, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant78" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(78, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/metoc0.5.jpg" alt="Metoc 0.5mg (Tipo Reliveran) ">
+      <div class="font-semibold text-center">Metoc 0.5mg (Tipo Reliveran) </div>
+      <div class="text-green-700 font-bold mb-2">$1700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(79, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant79" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(79, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/jarabetosadulto.jpeg" alt="Jarabe Tos Adulto(Tos y catarro fuerte)">
+      <div class="font-semibold text-center">Jarabe Tos Adulto(Tos y catarro fuerte)</div>
+      <div class="text-green-700 font-bold mb-2">$4700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(80, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant80" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(80, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/jarabeadulto.png" alt="Jarabe Tos Adulto">
+      <div class="font-semibold text-center">Jarabe Tos Adulto</div>
+      <div class="text-green-700 font-bold mb-2">$2700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(81, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant81" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(81, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/jarabetosnino.png" alt="Jarabe Tos niño">
+      <div class="font-semibold text-center">Jarabe Tos niño</div>
+      <div class="text-green-700 font-bold mb-2">$2700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(82, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant82" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(82, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/amoxicilina500.png.jpg" alt="Amoxicilina niño/adulto">
+      <div class="font-semibold text-center">Amoxicilina niño/adulto</div>
+      <div class="text-green-700 font-bold mb-2">$5600</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(83, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant83" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(83, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/dipironajarabe.png" alt="Dipirona peditrica 120ml">
+      <div class="font-semibold text-center">Dipirona peditrica 120ml</div>
+      <div class="text-green-700 font-bold mb-2">$5400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(84, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant84" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(84, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/gotasbetametasona.jpg" alt="Betametasona gotas 60mg">
+      <div class="font-semibold text-center">Betametasona gotas 60mg</div>
+      <div class="text-green-700 font-bold mb-2">$1700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(85, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant85" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(85, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/muelita.jpg" alt="Muelitas gel pediatrico">
+      <div class="font-semibold text-center">Muelitas gel pediatrico</div>
+      <div class="text-green-700 font-bold mb-2">$13200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(86, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant86" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(86, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/muelitaaminobenzoato.jpg" alt="Muelitas Adulto ">
+      <div class="font-semibold text-center">Muelitas Adulto </div>
+      <div class="text-green-700 font-bold mb-2">$12200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(87, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant87" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(87, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div></div></div><div id="cremas"><h2 class="text-3xl font-bold text-center text-blue-700 mt-10 mb-6">Cremas</h2><div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6"><div class="card">  
+      <img src="./Pedido de Medicamentos_files/platsul.jpeg" alt="Crema Platsul 30gr">
+      <div class="font-semibold text-center">Crema Platsul 30gr</div>
+      <div class="text-green-700 font-bold mb-2">$7700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(159, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant159" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(159, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/miklogen.jpeg" alt="Crema Miklogen (betametazona) 20g">
+      <div class="font-semibold text-center">Crema Miklogen (betametazona) 20g</div>
+      <div class="text-green-700 font-bold mb-2">$6500</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(160, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant160" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(160, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/cremarectal.jpg" alt="Crema rectal (hemorroide)">
+      <div class="font-semibold text-center">Crema rectal (hemorroide)</div>
+      <div class="text-green-700 font-bold mb-2">$7400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(161, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant161" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(161, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/crema-menopausia.jpeg" alt="Crema para afecciones vaginales(Menopausia)">
+      <div class="font-semibold text-center">Crema para afecciones vaginales(Menopausia)</div>
+      <div class="text-green-700 font-bold mb-2">$28200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(162, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant162" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(162, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/cremaherpesa.jpeg" alt="Crema para hérpes facial y labial (Aciclovir 5,0%)">
+      <div class="font-semibold text-center">Crema para hérpes facial y labial (Aciclovir 5,0%)</div>
+      <div class="text-green-700 font-bold mb-2">$6700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(163, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant163" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(163, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/klonafenacgel.png" alt="Crema Diclofenac">
+      <div class="font-semibold text-center">Crema Diclofenac</div>
+      <div class="text-green-700 font-bold mb-2">$4200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(164, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant164" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(164, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/vickvapo.png" alt="Vick vapoRub 12g">
+      <div class="font-semibold text-center">Vick vapoRub 12g</div>
+      <div class="text-green-700 font-bold mb-2">$6800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(165, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant165" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(165, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div></div></div><div id="otros"><h2 class="text-3xl font-bold text-center text-yellow-700 mt-10 mb-6">Otros</h2><div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6"><div class="card">  
+      <img src="./Pedido de Medicamentos_files/bandaelastica.jpg" alt="Venda elástica autoadherente 10cm x4.5mt">
+      <div class="font-semibold text-center">Venda elástica autoadherente 10cm x4.5mt</div>
+      <div class="text-green-700 font-bold mb-2">$3700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(102, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant102" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(102, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/chiclelaxante.png" alt="Chicle Laxante (6 u)">
+      <div class="font-semibold text-center">Chicle Laxante (6 u)</div>
+      <div class="text-green-700 font-bold mb-2">$5800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(103, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant103" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(103, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/pastillaazul.jpg" alt="Pastilla Azul  (2u)">
+      <div class="font-semibold text-center">Pastilla Azul  (2u)</div>
+      <div class="text-green-700 font-bold mb-2">$1700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(104, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant104" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(104, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/pastillacarbon.png" alt="Pastilla Carbón (10 u)">
+      <div class="font-semibold text-center">Pastilla Carbón (10 u)</div>
+      <div class="text-green-700 font-bold mb-2">$1300</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(105, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant105" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(105, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/curitaseconomicas.jpeg" alt="Curitas SYRITA">
+      <div class="font-semibold text-center">Curitas SYRITA</div>
+      <div class="text-green-700 font-bold mb-2">$1300</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(106, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant106" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(106, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/testembarazo.png" alt="Test embarazo">
+      <div class="font-semibold text-center">Test embarazo</div>
+      <div class="text-green-700 font-bold mb-2">$1500</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(107, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant107" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(107, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/norgestrelmax.jpg" alt="Pastilla dia despues x1">
+      <div class="font-semibold text-center">Pastilla dia despues x1</div>
+      <div class="text-green-700 font-bold mb-2">$3100</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(108, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant108" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(108, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/norgestrelplus.png" alt="Anticonceptivas - Norgestrel Plus">
+      <div class="font-semibold text-center">Anticonceptivas - Norgestrel Plus</div>
+      <div class="text-green-700 font-bold mb-2">$8000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(109, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant109" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(109, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/preservativosm.png" alt="Preservativo M caja x 3u">
+      <div class="font-semibold text-center">Preservativo M caja x 3u</div>
+      <div class="text-green-700 font-bold mb-2">$3000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(110, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant110" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(110, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/frascoanalisis.png" alt="Frasco analisis">
+      <div class="font-semibold text-center">Frasco analisis</div>
+      <div class="text-green-700 font-bold mb-2">$950</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(111, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant111" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(111, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/termometro.png" alt="Termometro digital">
+      <div class="font-semibold text-center">Termometro digital</div>
+      <div class="text-green-700 font-bold mb-2">$4900</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(112, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant112" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(112, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/offaerosol.jpg" alt="Off aerosol x170cc">
+      <div class="font-semibold text-center">Off aerosol x170cc</div>
+      <div class="text-green-700 font-bold mb-2">$5200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(113, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant113" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(113, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/ovulolomecan.jpg" alt="-No stock- Lomecan Ovulos x3 ">
+      <div class="font-semibold text-center">-No stock- Lomecan Ovulos x3 </div>
+      <div class="text-green-700 font-bold mb-2">$0</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(114, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant114" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(114, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/ovulosx6.jpeg" alt="Ovulos x6u">
+      <div class="font-semibold text-center">Ovulos x6u</div>
+      <div class="text-green-700 font-bold mb-2">$17200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(115, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant115" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(115, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/aguaoxigenada.png" alt="Agua oxigenada 10°">
+      <div class="font-semibold text-center">Agua oxigenada 10°</div>
+      <div class="text-green-700 font-bold mb-2">$1300</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(116, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant116" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(116, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/lagotita.jpeg" alt="Pegamento La Gotita 2ml">
+      <div class="font-semibold text-center">Pegamento La Gotita 2ml</div>
+      <div class="text-green-700 font-bold mb-2">$2000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(117, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant117" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(117, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/purocohol.jpeg" alt="Alcohol 500cc">
+      <div class="font-semibold text-center">Alcohol 500cc</div>
+      <div class="text-green-700 font-bold mb-2">$2800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(118, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant118" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(118, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/alcoholboricado.jpeg" alt="ALCOHOL BORICADO 60CC">
+      <div class="font-semibold text-center">ALCOHOL BORICADO 60CC</div>
+      <div class="text-green-700 font-bold mb-2">$1800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(119, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant119" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(119, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/alcoholgel.jpeg" alt="Alcohol en gel x250cc">
+      <div class="font-semibold text-center">Alcohol en gel x250cc</div>
+      <div class="text-green-700 font-bold mb-2">$2400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(120, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant120" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(120, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/gelneutro.jpeg" alt="Gel neutro 4k ">
+      <div class="font-semibold text-center">Gel neutro 4k </div>
+      <div class="text-green-700 font-bold mb-2">$10700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(121, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant121" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(121, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/solucionfisiologica.png" alt="Solucion fisiologica">
+      <div class="font-semibold text-center">Solucion fisiologica</div>
+      <div class="text-green-700 font-bold mb-2">$1300</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(122, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant122" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(122, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/pervinox.png" alt="Iodopovidona (pervinox) 60ml">
+      <div class="font-semibold text-center">Iodopovidona (pervinox) 60ml</div>
+      <div class="text-green-700 font-bold mb-2">$4000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(123, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant123" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(123, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/merthiolate.jpg" alt="Merthiolate">
+      <div class="font-semibold text-center">Merthiolate</div>
+      <div class="text-green-700 font-bold mb-2">$3300</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(124, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant124" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(124, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/bicarbonato.png" alt="Bicarbonato">
+      <div class="font-semibold text-center">Bicarbonato</div>
+      <div class="text-green-700 font-bold mb-2">$800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(125, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant125" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(125, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/azufre.png" alt="Azufre">
+      <div class="font-semibold text-center">Azufre</div>
+      <div class="text-green-700 font-bold mb-2">$1700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(126, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant126" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(126, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/peinex12.jpeg" alt="Peine familiar x12u ">
+      <div class="font-semibold text-center">Peine familiar x12u </div>
+      <div class="text-green-700 font-bold mb-2">$5200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(127, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant127" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(127, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/mamadera.jpeg" alt="Mamadera RANDOM">
+      <div class="font-semibold text-center">Mamadera RANDOM</div>
+      <div class="text-green-700 font-bold mb-2">$2200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(128, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant128" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(128, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/chupetes.jpeg" alt="Chupetes n°3  x6u ">
+      <div class="font-semibold text-center">Chupetes n°3  x6u </div>
+      <div class="text-green-700 font-bold mb-2">$6700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(129, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant129" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(129, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/jeringa.jpeg" alt="Jeringas Descartables">
+      <div class="font-semibold text-center">Jeringas Descartables</div>
+      <div class="text-green-700 font-bold mb-2">$450</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(130, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant130" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(130, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/agujaCanasta.jpeg" alt="Agujas Canasta">
+      <div class="font-semibold text-center">Agujas Canasta</div>
+      <div class="text-green-700 font-bold mb-2">$700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(131, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant131" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(131, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/panuelos.png" alt="Pañuelo descartable">
+      <div class="font-semibold text-center">Pañuelo descartable</div>
+      <div class="text-green-700 font-bold mb-2">$1900</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(132, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant132" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(132, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/belabin.jpg" alt="Toallas húmedas x100u">
+      <div class="font-semibold text-center">Toallas húmedas x100u</div>
+      <div class="text-green-700 font-bold mb-2">$1900</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(133, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant133" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(133, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/doncellaCA.jpeg" alt="Toalla doncella C/A. Sin. Perf.">
+      <div class="font-semibold text-center">Toalla doncella C/A. Sin. Perf.</div>
+      <div class="text-green-700 font-bold mb-2">$1090</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(134, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant134" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(134, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/doncellaDIARIO.jpeg" alt="Protector diario DONCELLA">
+      <div class="font-semibold text-center">Protector diario DONCELLA</div>
+      <div class="text-green-700 font-bold mb-2">$1300</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(135, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant135" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(135, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/doncellatanga.jpeg" alt="Toalla tanga DONCELLA. C/A.">
+      <div class="font-semibold text-center">Toalla tanga DONCELLA. C/A.</div>
+      <div class="text-green-700 font-bold mb-2">$1350</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(136, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant136" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(136, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/tamponSLM.jpeg" alt="Tampon OB (Siempre libre).Medio">
+      <div class="font-semibold text-center">Tampon OB (Siempre libre).Medio</div>
+      <div class="text-green-700 font-bold mb-2">$3700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(137, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant137" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(137, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/tamponSLM.jpeg" alt="Tampon OB (Siempre libre).Super">
+      <div class="font-semibold text-center">Tampon OB (Siempre libre).Super</div>
+      <div class="text-green-700 font-bold mb-2">$3700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(138, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant138" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(138, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/tetinacristal.jpeg" alt="Tetinas Mumy's cristal x 10 u">
+      <div class="font-semibold text-center">Tetinas Mumy's cristal x 10 u</div>
+      <div class="text-green-700 font-bold mb-2">$3200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(139, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant139" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(139, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/encendedor.jpeg" alt="Encendedor trans.Fuegolandia">
+      <div class="font-semibold text-center">Encendedor trans.Fuegolandia</div>
+      <div class="text-green-700 font-bold mb-2">$460</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(140, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant140" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(140, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/gasax10.png" alt="Gasa x 10u">
+      <div class="font-semibold text-center">Gasa x 10u</div>
+      <div class="text-green-700 font-bold mb-2">$3800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(141, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant141" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(141, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/hisopo.jpeg" alt="Hisopos x75u">
+      <div class="font-semibold text-center">Hisopos x75u</div>
+      <div class="text-green-700 font-bold mb-2">$2200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(142, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant142" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(142, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/barbijo.jpeg" alt="Barbijo KN95 triple capa x10u">
+      <div class="font-semibold text-center">Barbijo KN95 triple capa x10u</div>
+      <div class="text-green-700 font-bold mb-2">$2700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(143, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant143" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(143, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/quitaesmalte.jpeg" alt="Quitaesmalte DOREE 65ml">
+      <div class="font-semibold text-center">Quitaesmalte DOREE 65ml</div>
+      <div class="text-green-700 font-bold mb-2">$1600</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(144, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant144" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(144, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/algodon.jpeg" alt="Algodón caress x75gr">
+      <div class="font-semibold text-center">Algodón caress x75gr</div>
+      <div class="text-green-700 font-bold mb-2">$1000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(145, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant145" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(145, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/cordonesblanco.jpeg" alt="Cordones blanco 80cm (x12-pares)">
+      <div class="font-semibold text-center">Cordones blanco 80cm (x12-pares)</div>
+      <div class="text-green-700 font-bold mb-2">$3200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(146, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant146" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(146, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/cordonesnegro.jpeg" alt="Cordones negro 80cm (x12-pares)">
+      <div class="font-semibold text-center">Cordones negro 80cm (x12-pares)</div>
+      <div class="text-green-700 font-bold mb-2">$3200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(147, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant147" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(147, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/Colitasnegrastubo.jpeg" alt="Colita de pelo Negras- tubo x12">
+      <div class="font-semibold text-center">Colita de pelo Negras- tubo x12</div>
+      <div class="text-green-700 font-bold mb-2">$2400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(148, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant148" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(148, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/ColitasblancasTubo.jpeg" alt="Colita de pelo Blancas- tubo x12">
+      <div class="font-semibold text-center">Colita de pelo Blancas- tubo x12</div>
+      <div class="text-green-700 font-bold mb-2">$2400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(149, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant149" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(149, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/HiloCoserNegro.jpeg" alt="Hilo cocer negro x12u">
+      <div class="font-semibold text-center">Hilo cocer negro x12u</div>
+      <div class="text-green-700 font-bold mb-2">$3000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(150, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant150" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(150, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/HiloCoser12u.jpeg" alt="Hilo cocer colores x12u">
+      <div class="font-semibold text-center">Hilo cocer colores x12u</div>
+      <div class="text-green-700 font-bold mb-2">$3000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(151, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant151" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(151, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/HilocoserBlanco.jpeg" alt="Hilo cocer blanco x12u">
+      <div class="font-semibold text-center">Hilo cocer blanco x12u</div>
+      <div class="text-green-700 font-bold mb-2">$3000</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(152, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant152" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(152, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/PinzaDepilar.jpeg" alt="Pinza depilar negra x12 u ">
+      <div class="font-semibold text-center">Pinza depilar negra x12 u </div>
+      <div class="text-green-700 font-bold mb-2">$12700</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(153, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant153" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(153, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/cortaunia.jpg" alt="Alicate grande">
+      <div class="font-semibold text-center">Alicate grande</div>
+      <div class="text-green-700 font-bold mb-2">$1400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(154, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant154" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(154, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/clipinvisible.jpg" alt="Invisibles x12u">
+      <div class="font-semibold text-center">Invisibles x12u</div>
+      <div class="text-green-700 font-bold mb-2">$600</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(155, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant155" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(155, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/peinepiojo.jpeg" alt="Peine de piojos">
+      <div class="font-semibold text-center">Peine de piojos</div>
+      <div class="text-green-700 font-bold mb-2">$1800</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(156, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant156" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(156, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/mantecadecacao.png" alt="Manteca de cacao x 1">
+      <div class="font-semibold text-center">Manteca de cacao x 1</div>
+      <div class="text-green-700 font-bold mb-2">$1200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(157, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant157" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(157, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/ovuloscolpo.jpg" alt="-No Stock- Ovulos fangan x 10 ">
+      <div class="font-semibold text-center">-No Stock- Ovulos fangan x 10 </div>
+      <div class="text-green-700 font-bold mb-2">$0</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(158, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant158" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(158, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/cintahipoalergenica.png" alt="Cinta Hipoalergenica x1">
+      <div class="font-semibold text-center">Cinta Hipoalergenica x1</div>
+      <div class="text-green-700 font-bold mb-2">$1100</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(166, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant166" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(166, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/salbutamolgotas.jpg" alt="Salbutamol gotas (para nebulizar)">
+      <div class="font-semibold text-center">Salbutamol gotas (para nebulizar)</div>
+      <div class="text-green-700 font-bold mb-2">$1400</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(167, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant167" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(167, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div><div class="card">  
+      <img src="./Pedido de Medicamentos_files/salbutamol.png" alt="Salbutamol 100mcg 250 dosis">
+      <div class="font-semibold text-center">Salbutamol 100mcg 250 dosis</div>
+      <div class="text-green-700 font-bold mb-2">$12200</div>
+      <div class="flex items-center justify-center space-x-2 mt-2">
+        <button onclick="cambiarCantidad(168, -1)" class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">-</button>
+        <span id="cant168" class="text-lg font-bold w-8 text-center">0</span>
+        <button onclick="cambiarCantidad(168, 1)" class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg">+</button>
+      </div>
+    </div></div></div></div>
+
+      <!-- Total y resumen -->
+      <div class="p-4">
+        <div id="resumen-pedido" class="mt-4 p-4 border rounded bg-gray-100"></div>
+        <div class="text-right text-xl font-bold mb-4">
+          Total: $<span id="total">0</span>
+        </div>
+        <button onclick="enviarPedido()" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 font-bold rounded-lg shadow-md transition duration-300">
+          Enviar Pedido por WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <!-- JS del dropdown -->
+    <script>
+      function toggleDropdown() {
+        const dropdown = document.getElementById("dropdown");
+        dropdown.classList.toggle("hidden");
+      }
+
+      document.addEventListener("click", function (e) {
+        const button = document.querySelector(
+          'button[onclick="toggleDropdown()"]',
+        );
+        const dropdown = document.getElementById("dropdown");
+        if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+          dropdown.classList.add("hidden");
+        }
+      });
+    </script>
+  
+
+</body></html>
